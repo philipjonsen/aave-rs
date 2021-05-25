@@ -1,0 +1,16 @@
+{
+  "name": "test-linux-x64-gnu",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "test.linux-x64-gnu.node",
+  "files": [
+    "test.linux-x64-gnu.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

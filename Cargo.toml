@@ -1,13 +1,13 @@
 [package]
 edition = "2018"
-name = "aave-js"
+name = "aave-rs"
 version = "0.0.0"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-napi = "1"
+napi = "1.7"
 napi-derive = "1"
 bigdecimal = "0.2"
 

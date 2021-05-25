@@ -8,19 +8,19 @@ const {
 
 describe("bignumber", () => {
   it("should normalize", () => {
-    const num = (Math.random() * 1_000_000_000_000_000_000_000).toString();
+    const num = (Math.random() * 1000000000000000000000).toString();
     const rs = aave.normalize(num, 18);
     const js = normalize(num, 18);
     expect(rs).toBe(js);
   });
 
   it("should calculate correct hf", () => {
-    const num = (Math.random() * 1_000_000_000_000_000_000_000).toString();
+    const num = (Math.random() * 1000000000000000000000).toString();
     const rs = aave.calculateHealthFactorFromBalances(num, num, num);
     const js = calculateHealthFactorFromBalances(num, num, num).toString();
     expect(rs).toBe(js);
   });
-
+  /*
   it("should calculate linear interest", () => {
     const rs = aave.calculateLinearInterest(
       "23845771767403410038567586",
@@ -52,4 +52,5 @@ describe("bignumber", () => {
     ).toString();
     expect(rs).toBe(js);
   });
+  */
 });

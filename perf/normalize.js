@@ -1,4 +1,7 @@
-const { normalize } = require("@aave/protocol-js");
+const {
+  normalize,
+  calculateHealthFactorFromBalances,
+} = require("@aave/protocol-js");
 const aave = require("../index");
 const Benchmark = require("benchmark");
 
@@ -16,11 +19,19 @@ for (let i = 0; i < size; i++) {
 }
 
 suite
-  .add(`aave-js ${size} normalize`, () => {
+  /*.add(`aave-js ${size} normalize`, () => {
     set.forEach((num) => normalize(num, 18));
   })
   .add(`aave-rs ${size} normalize`, () => {
     set.forEach((num) => aave.normalize(num, 18));
+  })*/
+  .add(`aave-js ${size} hf`, () => {
+    set.forEach((num) =>
+      calculateHealthFactorFromBalances(num, num, num).toString()
+    );
+  })
+  .add(`aave-rs ${size} hf`, () => {
+    set.forEach((num) => aave.calculateHealthFactorFromBalances(num, num, num));
   })
   .on("cycle", (event) =>
     results.push({

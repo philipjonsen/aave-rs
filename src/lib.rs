@@ -3,7 +3,6 @@
 #[macro_use]
 extern crate napi_derive;
 extern crate bigdecimal;
-extern crate num_bigint;
 
 use bigdecimal::BigDecimal;
 use core::str;

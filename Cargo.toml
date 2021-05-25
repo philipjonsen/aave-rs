@@ -10,7 +10,6 @@ crate-type = ["cdylib"]
 napi = "1"
 napi-derive = "1"
 bigdecimal = "0.2"
-num-bigint = "0.4"
 
 [build-dependencies]
 napi-build = "1"

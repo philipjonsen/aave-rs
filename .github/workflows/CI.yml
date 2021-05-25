@@ -1,15 +1,15 @@
 name: CI
 
 env:
-  DEBUG: 'napi:*'
-  APP_NAME: 'aave-js'
+  DEBUG: "napi:*"
+  APP_NAME: "aave-rs"
 
 on:
   push:
     branches:
       - main
     tags-ignore:
-      - '**'
+      - "**"
   pull_request:
 
 jobs:
@@ -63,13 +63,13 @@ jobs:
           path: node_modules
           key: npm-cache-${{ matrix.os }}-node@14-${{ hashFiles('yarn.lock') }}
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
 
-      - name: 'Build'
+      - name: "Build"
         run: yarn build
         env:
-          MACOSX_DEPLOYMENT_TARGET: '10.13'
+          MACOSX_DEPLOYMENT_TARGET: "10.13"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -126,10 +126,10 @@ jobs:
           path: node_modules
           key: npm-cache-alpine-node@10-${{ hashFiles('yarn.lock') }}
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
 
-      - name: 'Build'
+      - name: "Build"
         run: |
           docker run --rm -v ~/.cargo/git:/root/.cargo/git -v ~/.cargo/registry:/root/.cargo/registry -v $(pwd):/${{ env.APP_NAME }} -e DEBUG="napi:*" -w /${{ env.APP_NAME }} builder sh -c "yarn build"
 
@@ -404,7 +404,7 @@ jobs:
           path: node_modules
           key: npm-cache-test-${{ matrix.os }}-node@${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
 
       - name: Download artifacts
@@ -439,7 +439,7 @@ jobs:
           path: node_modules
           key: npm-cache-alpine-node@${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --ignore-scripts --registry https://registry.npmjs.org
 
       - name: Download artifacts
@@ -453,7 +453,7 @@ jobs:
         shell: bash
 
       - name: Run tests
-        run: docker run --rm -v $(pwd):/${{ env.APP_NAME }} -w /${{ env.APP_NAME }} node:${{ matrix.node }}-alpine sh -c "yarn test"         
+        run: docker run --rm -v $(pwd):/${{ env.APP_NAME }} -w /${{ env.APP_NAME }} node:${{ matrix.node }}-alpine sh -c "yarn test"
 
   test-linux-aarch64:
     name: stable - aarch64-unknown-linux-gnu - node@${{ matrix.node }}
@@ -483,7 +483,7 @@ jobs:
           path: node_modules
           key: npm-cache-test-linux-aarch64-gnu-node@${{ matrix.node }}-${{ hashFiles('yarn.lock') }}
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
 
       - name: Download artifacts
@@ -548,7 +548,7 @@ jobs:
           path: node_modules
           key: npm-cache-publish-ubuntu-latest-${{ hashFiles('yarn.lock') }}
 
-      - name: 'Install dependencies'
+      - name: "Install dependencies"
         run: yarn install --frozen-lockfile --registry https://registry.npmjs.org --network-timeout 300000
 
       - name: Download all artifacts
@@ -579,5 +579,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  

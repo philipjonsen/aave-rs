@@ -1,15 +1,15 @@
 {
-  "name": "@sakulstra/aave-rs-linux-x64-gnu",
+  "name": "@sakulstra/aave-rs-win32-x64-msvc",
   "version": "1.0.0",
   "os": [
-    "linux"
+    "win32"
   ],
   "cpu": [
     "x64"
   ],
-  "main": "aave-rs.linux-x64-gnu.node",
+  "main": "aave-rs.win32-x64-msvc.node",
   "files": [
-    "aave-rs.linux-x64-gnu.node"
+    "aave-rs.win32-x64-msvc.node"
   ],
   "description": "Template project for writing node package with napi-rs",
   "keywords": [

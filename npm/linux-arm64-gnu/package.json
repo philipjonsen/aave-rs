@@ -1,15 +1,15 @@
 {
-  "name": "@sakulstra/aave-rs-linux-x64-gnu",
+  "name": "@sakulstra/aave-rs-linux-arm64-gnu",
   "version": "1.0.0",
   "os": [
     "linux"
   ],
   "cpu": [
-    "x64"
+    "arm64"
   ],
-  "main": "aave-rs.linux-x64-gnu.node",
+  "main": "aave-rs.linux-arm64-gnu.node",
   "files": [
-    "aave-rs.linux-x64-gnu.node"
+    "aave-rs.linux-arm64-gnu.node"
   ],
   "description": "Template project for writing node package with napi-rs",
   "keywords": [

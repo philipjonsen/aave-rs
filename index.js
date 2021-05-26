@@ -8,4 +8,4 @@ const { loadBinding } = require("@node-rs/helper");
  * `loadBinding` helper will load `aave-js.[PLATFORM].node` from `__dirname` first
  * If failed to load addon, it will fallback to load from `aave-js-[PLATFORM]`
  */
-module.exports = loadBinding(__dirname, "aave-rs", "aave-rs");
+module.exports = loadBinding(__dirname, "aave-rs", "@sakulstra/aave-rs");

@@ -27,7 +27,7 @@ suite
   })*/
   .add(`aave-js ${size} hf`, () => {
     set.forEach((num) =>
-      calculateHealthFactorFromBalances(num, num, num).toString()
+      calculateHealthFactorFromBalances(num, num, num).toString(),
     );
   })
   .add(`aave-rs ${size} hf`, () => {
@@ -39,7 +39,7 @@ suite
       hz: event.target.hz,
       "margin of error": `±${Number(event.target.stats.rme).toFixed(2)}%`,
       "runs sampled": event.target.stats.sample.length,
-    })
+    }),
   )
   .on("complete", function () {
     const lowestHz = results.slice().sort((a, b) => a.hz - b.hz)[0].hz;
@@ -54,7 +54,7 @@ suite
             Math.round((10 ** PRECISION * result.hz) / lowestHz) /
             10 ** PRECISION,
         }))
-        .reduce((acc, { name, ...cur }) => ({ ...acc, [name]: cur }), {})
+        .reduce((acc, { name, ...cur }) => ({ ...acc, [name]: cur }), {}),
     );
     console.log("Fastest is " + this.filter("fastest").map("name"));
   })
